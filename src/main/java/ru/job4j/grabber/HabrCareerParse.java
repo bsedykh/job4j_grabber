@@ -38,7 +38,7 @@ public class HabrCareerParse implements Parse {
                     Element linkElement = titleElement.child(0);
                     String postLink = String.format("%s%s", link, linkElement.attr("href"));
                     posts.add(new Post(
-                            posts.size() + 1,
+                            0,
                             titleElement.text(),
                             postLink,
                             retrieveDescription(postLink),
