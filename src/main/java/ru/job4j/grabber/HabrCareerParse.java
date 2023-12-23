@@ -6,7 +6,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import ru.job4j.grabber.utils.DateTimeParser;
-import ru.job4j.grabber.utils.HabrCareerDateTimeParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,11 +56,5 @@ public class HabrCareerParse implements Parse {
         Document document = connection.get();
         Element description = document.select(".vacancy-description__text").first();
         return description.text();
-    }
-
-    public static void main(String[] args) {
-        Parse parser = new HabrCareerParse(new HabrCareerDateTimeParser());
-        List<Post> posts = parser.list("https://career.habr.com");
-        posts.forEach(System.out::println);
     }
 }
